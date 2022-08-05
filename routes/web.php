@@ -16,7 +16,7 @@ use App\Http\Controllers\zipcodeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "hola mundo";
 });
 
 Route::get('/api/zip-codes/{id}', [zipcodeController::class,'readFile']);
