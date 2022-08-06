@@ -41,6 +41,6 @@ class zipcodeController extends Controller
             }
         }
         //return json_encode($strarr);
-       print_r(strarr);
+       print_r($strarr);
     }
 }
