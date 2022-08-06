@@ -25,30 +25,30 @@ class zipcodeController extends Controller
                 $strarr['zip_code'] = explode('|',$item)[0];
                 //$strarr['locality'] =strtoupper(utf8_decode(explode('|',$item)[5]));
                 $strarr['locality'] = $this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[5])));
-                $federal_entity[explode('|',$item)[7]] = [
+                /*$federal_entity[explode('|',$item)[7]] = [
                     "key"=>utf8_decode(explode('|',$item)[7]),
-                    "name"=>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[5]))),
+                    "name"=>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[4]))),
                     "code" => null
-                ];
-                $strarr['federal_entity'] = array_values($federal_entity);
-                /*$strarr['federal_entity'][explode('|',$item)[7]] =[
+                ];*/
+               // $strarr['federal_entity'] = array_values($federal_entity);
+                $strarr['federal_entity'] =[
                     "key"=>utf8_decode(explode('|',$item)[7]),
-                    "name"=>strtoupper(utf8_decode(explode('|',$item)[5])),
+                    "name"=>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[4]))),
                     "code" => null
-                ]; */
+                ]; 
                 $settlements[explode('|',$item)[12]] = [
                     "key" =>utf8_decode(explode('|',$item)[12]),
                     "name" =>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[1]))),
                     "zone_type" =>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[13]))),
                     "settlement_type" => [
-                        "name" =>    $this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[2]))),
-                    ],
+                        "name" =>    $this->remove_accents(utf8_encode(explode('|',$item)[2])),
+                    ]
                 ];
                 $strarr['settlements'] = array_values($settlements);
                
                 $strarr['municipality'][explode('|',$item)[11]] =[
                     "key"=>utf8_decode(explode('|',$item)[11]),
-                    "name"=>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[3]))),
+                    "name"=>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[3])))
                 ]; 
             }
         }
