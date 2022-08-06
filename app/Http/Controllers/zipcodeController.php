@@ -29,7 +29,15 @@ class zipcodeController extends Controller
                     "name"=>strtoupper(utf8_decode(explode('|',$item)[5])),
                     "code" => null
                 ]; 
-                $strarr['settlements'][explode('|',$item)[12]] = [
+                /*$strarr['settlements'][explode('|',$item)[12]] = [
+                    "key" =>utf8_decode(explode('|',$item)[12]),
+                    "name" =>strtoupper(utf8_decode(explode('|',$item)[1])),
+                    "zone_type" =>strtoupper(utf8_decode(explode('|',$item)[13])),
+                    "settlement_type" => [
+                        "name" =>    strtoupper(utf8_decode(explode('|',$item)[2]))
+                    ],
+                ];*/
+                $settlements[explode('|',$item)[12]] = [
                     "key" =>utf8_decode(explode('|',$item)[12]),
                     "name" =>strtoupper(utf8_decode(explode('|',$item)[1])),
                     "zone_type" =>strtoupper(utf8_decode(explode('|',$item)[13])),
@@ -37,6 +45,8 @@ class zipcodeController extends Controller
                         "name" =>    strtoupper(utf8_decode(explode('|',$item)[2]))
                     ],
                 ];
+                $strarr['settlements'] = array_values($settlements);
+               
                 $strarr['municipality'][explode('|',$item)[11]] =[
                     "key"=>utf8_decode(explode('|',$item)[11]),
                     "name"=>strtoupper(utf8_decode(explode('|',$item)[3])),
