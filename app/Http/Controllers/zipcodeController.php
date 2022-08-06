@@ -32,7 +32,7 @@ class zipcodeController extends Controller
                 ];*/
                // $strarr['federal_entity'] = array_values($federal_entity);
                 $strarr['federal_entity'] =[
-                    "key"=>utf8_decode(explode('|',$item)[7]),
+                    "key"=>intval(utf8_decode(explode('|',$item)[7])),
                     "name"=>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[4]))),
                     "code" => null
                 ]; 
@@ -47,7 +47,7 @@ class zipcodeController extends Controller
                 $strarr['settlements'] = array_values($settlements);
                
                 $strarr['municipality'][explode('|',$item)[11]] =[
-                    "key"=>utf8_decode(explode('|',$item)[11]),
+                    "key"=>intval(utf8_decode(explode('|',$item)[11])),
                     "name"=>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[3])))
                 ]; 
             }
