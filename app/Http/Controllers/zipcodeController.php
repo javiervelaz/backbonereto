@@ -23,7 +23,7 @@ class zipcodeController extends Controller
         foreach($db as $item){
             if(explode('|',$item)[0] === $id){
                 $strarr['zip_code'] = explode('|',$item)[0];
-                $strarr['locality'] =strtoupper(utf8_decode(explode('|',$item)[4]));
+                $strarr['locality'] =strtoupper(utf8_decode(explode('|',$item)[5]));
                 $strarr['federal_entity'][explode('|',$item)[7]] =[
                     "key"=>utf8_decode(explode('|',$item)[7]),
                     "name"=>strtoupper(utf8_decode(explode('|',$item)[5])),
