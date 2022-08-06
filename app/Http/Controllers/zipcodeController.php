@@ -26,15 +26,15 @@ class zipcodeController extends Controller
                 $strarr['locality'] =strtoupper(utf8_decode(explode('|',$item)[4]));
                 $strarr['federal_entity'][explode('|',$item)[7]] =[
                     "key"=>utf8_decode(explode('|',$item)[7]),
-                    "name"=>strtoupper(utf8_decode(explode('|',$item)[4])),
+                    "name"=>strtoupper(utf8_decode(explode('|',$item)[5])),
                     "code" => null
                 ]; 
                 $strarr['settlements'][explode('|',$item)[12]] = [
                     "key" =>utf8_decode(explode('|',$item)[12]),
                     "name" =>strtoupper(utf8_decode(explode('|',$item)[1])),
-                    "zone_type" =>utf8_decode(explode('|',$item)[13]),
+                    "zone_type" =>strtoupper(utf8_decode(explode('|',$item)[13])),
                     "settlement_type" => [
-                        "name" =>      strtoupper(utf8_decode(explode('|',$item)[2]))
+                        "name" =>    strtoupper(utf8_decode(explode('|',$item)[2]))
                     ],
                 ];
                 $strarr['municipality'][explode('|',$item)[11]] =[
