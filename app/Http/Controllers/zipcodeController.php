@@ -24,12 +24,12 @@ class zipcodeController extends Controller
             if(explode('|',$item)[0] === $id){
                 $strarr['zip_code'] = explode('|',$item)[0];
                 $strarr['locality'] =utf8_decode(explode('|',$item)[4]);
-                $strarr['federal_entity'][explode('|',$item)[7]] =[
-                    "key"=>explode('|',$item)[7],
+                $strarr['federal_entity'] =[
+                    "key"=>utf8_decode(explode('|',$item)[7]),
                     "name"=>utf8_decode(explode('|',$item)[4]),
                     "code" => null
                 ]; 
-                $strarr['settlements'][explode('|',$item)[12]] = [
+                $strarr['settlements'] = [
                     "key" =>utf8_decode(explode('|',$item)[12]),
                     "name" =>utf8_decode(explode('|',$item)[1]),
                     "zone_type" =>utf8_decode(explode('|',$item)[13]),
@@ -37,7 +37,7 @@ class zipcodeController extends Controller
                         "name" =>      utf8_decode(explode('|',$item)[2])
                     ],
                 ];
-                $strarr['municipality'][explode('|',$item)[11]] =[
+                $strarr['municipality'] =[
                     "key"=>utf8_decode(explode('|',$item)[11]),
                     "name"=>utf8_decode(explode('|',$item)[3]),
                 ]; 
