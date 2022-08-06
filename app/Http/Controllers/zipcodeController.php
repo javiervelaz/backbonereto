@@ -17,6 +17,7 @@ class zipcodeController extends Controller
         $db = explode("\r\n", $content);
         unset($db[0]);
         unset($db[1]);
+        $strarr = [];
         foreach($db as $item){
             if(explode('|',$item)[0] === $id){
                 $strarr['zip_code'] = explode('|',$item)[0];
