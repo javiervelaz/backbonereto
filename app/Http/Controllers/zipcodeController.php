@@ -15,7 +15,7 @@ class zipcodeController extends Controller
     public function readFile($id){
         $content = File::get('CPdescarga.txt');
        
-        $db = explode("\r\n", $content);
+        $db = explode("\n", $content);
         unset($db[0]);
         unset($db[1]);
         $strarr = [];
