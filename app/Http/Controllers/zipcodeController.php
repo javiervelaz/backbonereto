@@ -26,7 +26,7 @@ class zipcodeController extends Controller
                 $strarr['locality'] = $this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[5])));
                 $strarr['federal_entity'] =[
                     "key"=>intval(utf8_decode(explode('|',$item)[7])),
-                    "name"=>utf8_encode($this->remove_accents(strtoupper(explode('|',$item)[4]))),
+                    "name"=>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[4]))),
                     "code" => null
                 ]; 
                 $settlements[explode('|',$item)[12]] = [
@@ -72,8 +72,8 @@ class zipcodeController extends Controller
     chr(195).chr(161) => 'a', chr(195).chr(162) => 'a',
     chr(195).chr(163) => 'a', chr(195).chr(164) => 'a',
     chr(195).chr(165) => 'a', chr(195).chr(167) => 'c',
-    chr(195).chr(168) => 'e', chr(195).chr(169) => 'e',
-    chr(195).chr(170) => 'e', chr(195).chr(171) => 'e',
+    chr(195).chr(168) => 'E', chr(195).chr(169) => 'E',
+    chr(195).chr(170) => 'E', chr(195).chr(171) => 'E',
     chr(195).chr(172) => 'i', chr(195).chr(173) => 'i',
     chr(195).chr(174) => 'i', chr(195).chr(175) => 'i',
     chr(195).chr(177) => 'n', chr(195).chr(178) => 'o',
