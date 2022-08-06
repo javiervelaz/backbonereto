@@ -24,19 +24,17 @@ class zipcodeController extends Controller
             if(explode('|',$item)[0] === $id){
                 $strarr['zip_code'] = explode('|',$item)[0];
                 $strarr['locality'] =strtoupper(utf8_decode(explode('|',$item)[5]));
-                $strarr['federal_entity'][explode('|',$item)[7]] =[
+                $federal_entity[explode('|',$item)[7]] = [
                     "key"=>utf8_decode(explode('|',$item)[7]),
                     "name"=>strtoupper(utf8_decode(explode('|',$item)[5])),
                     "code" => null
-                ]; 
-                /*$strarr['settlements'][explode('|',$item)[12]] = [
-                    "key" =>utf8_decode(explode('|',$item)[12]),
-                    "name" =>strtoupper(utf8_decode(explode('|',$item)[1])),
-                    "zone_type" =>strtoupper(utf8_decode(explode('|',$item)[13])),
-                    "settlement_type" => [
-                        "name" =>    strtoupper(utf8_decode(explode('|',$item)[2]))
-                    ],
-                ];*/
+                ];
+                $strarr['federal_entity'] = array_values($federal_entity);
+                /*$strarr['federal_entity'][explode('|',$item)[7]] =[
+                    "key"=>utf8_decode(explode('|',$item)[7]),
+                    "name"=>strtoupper(utf8_decode(explode('|',$item)[5])),
+                    "code" => null
+                ]; */
                 $settlements[explode('|',$item)[12]] = [
                     "key" =>utf8_decode(explode('|',$item)[12]),
                     "name" =>strtoupper(utf8_decode(explode('|',$item)[1])),
