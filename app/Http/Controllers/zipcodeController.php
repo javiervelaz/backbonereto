@@ -37,7 +37,7 @@ class zipcodeController extends Controller
                     "code" => null
                 ]; 
                 $settlements[explode('|',$item)[12]] = [
-                    "key" =>utf8_decode(explode('|',$item)[12]),
+                    "key" =>intval(utf8_decode(explode('|',$item)[12])),
                     "name" =>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[1]))),
                     "zone_type" =>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[13]))),
                     "settlement_type" => [
