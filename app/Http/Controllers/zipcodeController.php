@@ -23,17 +23,10 @@ class zipcodeController extends Controller
         foreach($db as $item){
             if(explode('|',$item)[0] === $id){
                 $strarr['zip_code'] = explode('|',$item)[0];
-                //$strarr['locality'] =strtoupper(utf8_decode(explode('|',$item)[5]));
                 $strarr['locality'] = $this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[5])));
-                /*$federal_entity[explode('|',$item)[7]] = [
-                    "key"=>utf8_decode(explode('|',$item)[7]),
-                    "name"=>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[4]))),
-                    "code" => null
-                ];*/
-               // $strarr['federal_entity'] = array_values($federal_entity);
                 $strarr['federal_entity'] =[
                     "key"=>intval(utf8_decode(explode('|',$item)[7])),
-                    "name"=>$this->remove_accents(utf8_encode(strtoupper(explode('|',$item)[4]))),
+                    "name"=>utf8_encode($this->remove_accents(strtoupper(explode('|',$item)[4]))),
                     "code" => null
                 ]; 
                 $settlements[explode('|',$item)[12]] = [
